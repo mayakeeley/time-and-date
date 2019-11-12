@@ -1,16 +1,23 @@
-import { greet, getTime, todaysDate } from "./main.js";
+import {
+  greet,
+  getTime,
+  todaysDate,
+  yesterday,
+  yesterdayGreet
+} from "./main.js";
 var solution = require("./main");
 import { pastTime } from "./main.js";
 
-test("outputs fullname from ", () => {
-  expect(solution.pastTime()).toBe("11/10/2018");
-});
+describe("if the user enters in a previous date, then there should be an alert", () => {
+  test("yesterdays date", () => {
+    const currentTime = new Date();
+    const mockYesterdayDate = currentTime.setDate(currentTime.getDate() - 1);
+    expect(solution.yesterday().toString()).toBe(`${mockYesterdayDate}`);
+  });
 
-test("Previous Date", () => {
-  const yesterday = new Date(11, 10, 2019);
-  const today = new Date();
-
-  expect(yesterday);
+  test("yesterday date alert", () => {
+    expect(solution.yesterdayGreet()).toBe(alert("Leave the past in the past"));
+  });
 });
 
 test("convert current date to milliseconds since epoch", () => {
