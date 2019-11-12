@@ -1,14 +1,13 @@
-
 import {
-  greet,
   getTime,
   todaysDate,
+  secondsBetweenDates,
+  hoursBetweenDates,
+  minutesBetweenDates,
+  daysBetweenDates,
   yesterday,
   yesterdayGreet
 } from "./main.js";
-
-import { getTime, todaysDate, secondsBetweenDates } from "./main.js";
-
 var solution = require("./main");
 import { pastTime } from "./main.js";
 
@@ -40,11 +39,31 @@ test("Get todays date", () => {
   expect(todaysDate().toString()).toBe(`${mockedDate}`);
 });
 
-test("Get seconds between todays date & another date", () => {
+test("Get seconds between todays date & another date, inputs should be of form milliseconds since epoch", () => {
   const todaysDate = new Date().getTime();
   const givenDate = 1512864000000;
 
-  expect(secondsBetweenDates(todaysDate, givenDate)).toBe(-2592000000000);
+  expect(secondsBetweenDates(givenDate, todaysDate)).toBe(2592000);
+});
+
+test("Get minutes between todays date & another date, inputs should be of form milliseconds since epoch", () => {
+  const todaysDate = new Date().getTime();
+  const givenDate = 1512864000000;
+
+  expect(minutesBetweenDates(givenDate, todaysDate)).toBe(43200);
+});
+
+test("Get hours between todays date & another date, inputs should be of form milliseconds since epoch", () => {
+  const todaysDate = new Date().getTime();
+  const givenDate = 1512864000000;
+
+  expect(hoursBetweenDates(givenDate, todaysDate)).toBe(720);
+});
+
+test("Get days between todays date & another date, inputs should be of form milliseconds since epoch", () => {
+  const todaysDate = new Date().getTime();
+  const givenDate = 1512864000000;
+  expect(daysBetweenDates(givenDate, todaysDate)).toBe(30);
 });
 
 test("convert current date to milliseconds since epoch", () => {
