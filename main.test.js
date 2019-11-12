@@ -1,9 +1,13 @@
+import { greet, getTime, todaysDate } from "./main.js";
 var solution = require("./main");
-import { greet } from "./main.js";
-import { todaysDate } from "./main.js";
 
 test("outputs fullname from ", () => {
   expect(solution.greet()).toBe("Hello, My name is Adam Kovacs");
+});
+
+test("convert current date to milliseconds since epoch", () => {
+  let todaysDate = new Date();
+  expect(solution.getTime()).toBe(todaysDate.getTime());
 });
 
 test("Mock Date", () => {
