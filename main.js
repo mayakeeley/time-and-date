@@ -9,3 +9,7 @@ export const getTime = () => {
   let d = new Date();
   return d.getTime();
 };
+
+export const todaysDate = () => {
+  return Date();
+};
