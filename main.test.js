@@ -49,3 +49,18 @@ test("Get days between todays date & another date, inputs should be of form mill
   const givenDate = 1512864000000;
   expect(daysBetweenDates(givenDate, todaysDate)).toBe(30);
 });
+
+test("convert current date to milliseconds since epoch", () => {
+  let todaysDate = new Date();
+  expect(solution.getTime()).toBe(todaysDate.getTime());
+});
+
+test("Mock Date", () => {
+  const mockedDate = new Date(2017, 10, 10);
+  const originalDate = Date;
+
+  global.Date = jest.fn(() => mockedDate);
+  global.Date.setDate = originalDate.setDate;
+
+  expect(todaysDate().toString()).toBe(`${mockedDate}`);
+});
