@@ -14,3 +14,12 @@ const pastTime = () => {
   // const mins = currentTime.getMins;
   // const secs = currentTime.getSeconds;
 };
+
+export const getTime = () => {
+  let d = new Date();
+  return d.getTime();
+};
+
+export const todaysDate = () => {
+  return Date();
+};
