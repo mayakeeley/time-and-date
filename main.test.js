@@ -1,6 +1,13 @@
 var solution = require("./main");
-import { greet } from "./main.js";
+import { pastTime } from "./main.js";
 
 test("outputs fullname from ", () => {
-  expect(solution.greet()).toBe("Hello, My name is Adam Kovacs");
+  expect(solution.pastTime()).toBe("11/10/2018");
+});
+
+test("Previous Date", () => {
+  const yesterday = new Date(11, 10, 2019);
+  const today = new Date();
+
+  expect(yesterday);
 });
